@@ -13,14 +13,8 @@ client = discord.Client()
 def get_token_price(id):
     id = id.lower()
     print(str(id) + ": $" + str(cg.get_price(ids=id, vs_currencies='usd')[id]['usd']))
-    #return small numbers too
     return cg.get_price(ids=id, vs_currencies='usd')[id]['usd']
-
-# async def monitor(token_name):
-#     while(True):
-
         
-
 @client.event
 async def on_ready():
     print("We have logged in as {0.user}".format(client))
@@ -85,10 +79,10 @@ async def monitor(token_name):
         print("monitoring ", end='')
         price = cg.get_price(ids=token_name.lower(), vs_currencies='usd')[token_name.lower()]['usd']
         print(token_name + ": $" + str(price))
-        await changeWatching(price, token_name)
+        await changeWatching(price)
         await asyncio.sleep(10)
 
 async def changeWatching(price):
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='$' + str(price)))
 
-client.run('OTI2NTQxOTkyMjE1ODM4NzUw.Yc9LeQ.88ws1B2yMeeT59AIRyOyZ3OM0Dk')
+client.run(DISCORD_BOT_TOKEN)
