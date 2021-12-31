@@ -16,7 +16,7 @@ def get_token(id):
 @client.event
 async def on_ready():
     print("We have logged in as {0.user}".format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='lucas sleep'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='me sleep'))
     
 
 @client.event
