@@ -40,6 +40,7 @@ async def on_message(message):
             try:
                 price = get_token_price(token_name)
                 await message.channel.send(token_name.upper() + ': $' + str(price))
+                
             except Exception as e:
                 print('Error: ', end =''), print(e)
                 await message.channel.send('Unable to fetch price, please use full token name!')
