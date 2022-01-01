@@ -6,6 +6,9 @@ import discord
 import asyncio
 import time
 from pycoingecko import CoinGeckoAPI
+import os
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 cg = CoinGeckoAPI()
 client = discord.Client()
@@ -77,8 +80,9 @@ def get_token_price(id):
     id = id.lower()
     t = time.localtime()
     logging_time = time.strftime('%I:%M:%S %p', t)
-    print('[' + logging_time + ']: ' + str(id) + ': $' + str(cg.get_price(ids=id, vs_currencies='usd')[id]['usd']))
-    return cg.get_price(ids=id, vs_currencies='usd')[id]['usd']
+    price = cg.get_price(ids=id, vs_currencies='usd')[id]['usd']
+    print('[' + logging_time + ']: ' + str(id) + ': $' + str(price))
+    return price
     
 async def monitor(token_name):
     while (True):
@@ -95,4 +99,4 @@ async def monitor(token_name):
 async def changeWatching(price):
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='$' + str(price)))
 
-client.run(DISCORD_BOT_TOKEN)
+client.run(os.getenv('DISCORD_TOKEN'))
