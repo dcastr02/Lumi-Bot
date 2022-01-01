@@ -5,8 +5,8 @@
 import discord
 import asyncio
 import time
-from pycoingecko import CoinGeckoAPI
 import os
+from pycoingecko import CoinGeckoAPI
 from dotenv import load_dotenv
 load_dotenv('.env')
 
