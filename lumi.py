@@ -1,5 +1,5 @@
 ##########################
-#Lumi-Bot v0.03          #
+#Lumi-Bot v0.04          #
 #Made by Diego Castro    #
 ##########################
 import discord
@@ -17,7 +17,7 @@ client = discord.Client()
 async def on_ready():
     t = time.localtime()
     logging_time = time.strftime('%I:%M:%S %p', t)
-    print('[' + logging_time + ']: Welcome to LumiBot [v0.03]')
+    print('[' + logging_time + ']: Welcome to LumiBot [v0.04]')
     print('[' + logging_time + ']: ', end= ''), print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='all the coins'))
 
@@ -106,4 +106,4 @@ async def monitor(token_name):
 async def changeWatching(price):
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='$' + str(price)))
 
-client.run(os.getenv('DISCORD_TOKEN'))
+client.run(os.getenv('DISCORD_BOT_TOKEN'))
