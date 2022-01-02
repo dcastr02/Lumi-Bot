@@ -77,7 +77,7 @@ async def on_message(message):
                     await message.channel.send('Now monitoring ' + token_name)
                     flag = False
                 else:
-                    await message.channel.send('Error cannot monitor two coins at once. ?reset first!')
+                    await message.channel.send('Error: cannot monitor two coins at once. ?reset first!')
             
             except Exception as e:
                 print('Error: ', end =''), print(e)
