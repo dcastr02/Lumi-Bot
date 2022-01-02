@@ -20,7 +20,9 @@ async def on_ready():
     print('[' + logging_time + ']: Welcome to LumiBot [v0.03]')
     print('[' + logging_time + ']: ', end= ''), print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='all the coins'))
-    
+
+flag = True
+
 @client.event 
 async def on_message(message):
     if(message.author == client.user):
@@ -53,9 +55,10 @@ async def on_message(message):
                 print('Error: ', end =''), print(e)
                 await message.channel.send('Unable to fetch price, please use full token name!')
 
+    
     if(message.content.startswith('?')):
         global task
-
+        global flag
         if(message.content == '?'):
             return
 
@@ -63,14 +66,18 @@ async def on_message(message):
             await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='all the coins'))
             await message.channel.send('Resetting the monitor!')
             task.cancel()
+            flag = True
 
         else:
             token_name = message.content.replace('?', '')
-
             try:
-                price = cg.get_price(ids=token_name.lower(), vs_currencies='usd')[token_name.lower()]['usd']
-                task =  asyncio.Task(monitor(token_name))
-                await message.channel.send('Now monitoring ' + token_name)
+                if(flag):
+                    price = cg.get_price(ids=token_name.lower(), vs_currencies='usd')[token_name.lower()]['usd']
+                    task =  asyncio.Task(monitor(token_name))
+                    await message.channel.send('Now monitoring ' + token_name)
+                    flag = False
+                else:
+                    await message.channel.send('Error cannot monitor two coins at once. ?reset first!')
             
             except Exception as e:
                 print('Error: ', end =''), print(e)
