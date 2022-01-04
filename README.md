@@ -6,7 +6,7 @@ Discord bot that fetches and monitors cryptocurrency prices utilizing CoinGeko A
 Python modules needed: discord, asyncio, time, os, pycoingecko, dotenv
 
 ```bash
-pip install discord, asyncio, time, os, pycoingecko, dotenv
+pip install discord asyncio time os pycoingecko dotenv
 ```
 
 First you will need to create a free [Discord](https://discord.com/) server. 
