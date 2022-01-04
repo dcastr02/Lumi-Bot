@@ -1,5 +1,5 @@
 # Lumi-Bot
-Discord bot that fetches and monitors cryptocurrency prices utilizing CoinGeko API
+Discord bot that fetches and monitors cryptocurrency prices utilizing CoinGeko API. For any help message fatal#9999 on discord.
 
 ## Requirements
 
@@ -11,7 +11,7 @@ pip install discord asyncio time os pycoingecko dotenv
 
 First you will need to create a free [Discord](https://discord.com/) server. 
 
-Next, create a New Application on the Discord developer portal by clicking the button in the top right corner at https://discord.com/developers/applications.
+Next, create a new application on the Discord developer portal by clicking the button in the top right corner at https://discord.com/developers/applications.
 
 ![Discord bot name](./.github/name.png)
 
@@ -29,20 +29,26 @@ Click into the OAuth2 menu item. Give your application the bot scope:
 
 ![Discord scope](./.github/scope.png)
 
-Then, scroll down to the next section and give your bot the following permissions under Text Permissions:
+Then, scroll down to the next section and give your bot the following permissions under Bot Permissions:
 
 ![Discord permissions](./.github/permissions.png)
 
-Copy and paste the OAuth URL into your browser to add the newly created bot to your server. In order for the script to run remember to edit the `.env` file to your own bot token! 
+Copy and paste the generated OAuth URL below into your browser to add the newly created bot to your server. In order for the script to run remember to edit the `.env` file to your own bot token! 
 
 ## Run Locally
 ```bash
 python lumi.py
 ```
+
+## Heroku
+
+This app can be easily deployed to Heroku for free to run the bot 24/7. Here is an in depth YouTube video on doing so:
+https://www.youtube.com/watch?v=BPvg9bndP1U
+
+## Usage
 Your discord server should look like this once its up and running:
 ![Discord init](./.github/init.png)
 
-## Usage
 This bot utilizes the full name of the token listed on [CoinGecko](https://www.coingecko.com/). Use `ethereum` instead of `eth`.
 
 To check the price of a token in any text channel visible to LumiBot,use the `$` prefix: 
