@@ -1,5 +1,5 @@
 # Lumi-Bot
-Discord bot that fetches and monitors cryptocurrency prices utilizing CoinGeko API. For any help message fatal#9999 on discord.
+Discord bot that fetches and monitors cryptocurrency prices utilizing CoinGeko API.
 
 ## Requirements
 
@@ -51,7 +51,7 @@ Your discord server should look like this once its up and running:
 
 This bot utilizes the full name of the token listed on [CoinGecko](https://www.coingecko.com/). Use `ethereum` instead of `eth`.
 
-To check the price of a token in any text channel visible to LumiBot,use the `$` prefix: 
+To check the price of a token in any text channel visible to LumiBot, use the `$` prefix: 
 ```
 $ethereum
 ```
